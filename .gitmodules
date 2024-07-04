@@ -1,0 +1,3 @@
+[submodule "nautobot/nautobot-docker-compose"]
+	path = nautobot/nautobot-docker-compose
+	url = https://github.com/nautobot/nautobot-docker-compose
