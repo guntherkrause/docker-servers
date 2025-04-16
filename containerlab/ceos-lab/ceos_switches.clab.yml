@@ -1,0 +1,38 @@
+name: ceos
+
+topology:
+  nodes:
+    ceos1:
+      kind: ceos
+      image: ceos:4.32.0F
+    ceos2:
+      kind: ceos
+      image: ceos:4.32.0F
+    ceos3:
+      kind: ceos
+      image: ceos:4.32.0F
+    ceos4:
+      kind: ceos
+      image: ceos:4.32.0F
+    linux1:
+      kind: linux
+      image: alpine:latest
+    linux2:
+      kind: linux
+      image: alpine:latest
+    linux3:
+      kind: linux
+      image: alpine:latest
+    linux4:
+      kind: linux
+      image: alpine:latest
+
+  links:
+    - endpoints: ["ceos1:eth1", "ceos2:eth1"]
+    - endpoints: ["ceos2:eth2", "ceos3:eth1"]
+    - endpoints: ["ceos3:eth2", "ceos4:eth1"]
+    - endpoints: ["ceos4:eth2", "ceos1:eth2"]
+    - endpoints: ["linux1:eth1", "ceos1:eth3"]
+    - endpoints: ["linux2:eth1", "ceos2:eth3"]
+    - endpoints: ["linux3:eth1", "ceos3:eth3"]
+    - endpoints: ["linux4:eth1", "ceos4:eth3"]
